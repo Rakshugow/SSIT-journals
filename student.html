@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Publication Form | SSIT Publications Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="form-page">
+  <div class="top-strip">
+    <div class="container strip-inner">
+      <div class="strip-left">
+        <span class="strip-badge">Student Portal</span>
+        <span class="strip-text">Research &amp; Publications</span>
+      </div>
+      <div class="strip-right">
+        <span class="strip-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          SSIT Tumakuru
+        </span>
+        <a href="mailto:admin@ssit.edu.in" class="strip-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Help &amp; Support
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header compact-header">
+    <div class="container header-inner">
+      <a class="brand brand-logo-only" href="index.html" aria-label="SSIT Publications Portal home">
+        <img class="brand-logo" src="https://ssahe.edu.in/ssit/img/ssit-logo.png" alt="SSIT logo">
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="faculty.html">Faculty Page</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-banner student-banner">
+    <div class="container page-banner-inner">
+      <p class="eyebrow">Student Publications</p>
+      <h1>Submit student conference and journal publications.</h1>
+      <p>
+        This page follows the same publication process as the faculty page, with USN instead of employee ID and an additional department field.
+      </p>
+    </div>
+  </section>
+
+  <main class="form-layout container">
+    <div class="form-shell">
+      <aside class="form-sidebar">
+        <div class="sidebar-card note-panel">
+          <p class="sidebar-label">Submission Guidance</p>
+          <p>Use this page for student publication records with the same conference and journal structure as the faculty workflow, including document uploads where required.</p>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-label">Submission Flow</p>
+          <ol class="flow-list">
+            <li>Enter student information</li>
+            <li>Select conference or journal</li>
+            <li>Choose national or international</li>
+            <li>Complete the required details</li>
+            <li>Upload PDF documents where needed</li>
+          </ol>
+        </div>
+      </aside>
+
+      <section class="form-card">
+        <form class="publication-form" data-role="student" novalidate>
+          <div class="form-grid">
+            <label class="field">
+              <span>Name</span>
+              <input type="text" name="name" placeholder="Enter student name" required>
+            </label>
+
+            <label class="field">
+              <span>USN</span>
+              <input type="text" name="usn" placeholder="Enter USN" required>
+            </label>
+
+            <label class="field">
+              <span>Department</span>
+              <input type="text" name="department" placeholder="Enter department" required>
+            </label>
+
+            <label class="field">
+              <span>Designation</span>
+              <input type="text" name="designation" placeholder="Enter designation or role" required>
+            </label>
+
+            <label class="field">
+              <span>Publication</span>
+              <select name="publicationType" required>
+                <option value="">Select publication type</option>
+                <option value="conference">Conference</option>
+                <option value="journal">Journal</option>
+              </select>
+            </label>
+          </div>
+
+          <section class="conditional-block hidden" data-block="conference">
+            <div class="block-heading">
+              <h2>Conference Details</h2>
+            </div>
+
+            <label class="field">
+              <span>Conference Type</span>
+              <select name="conferenceScope" data-required="true">
+                <option value="">Select conference type</option>
+                <option value="national">National</option>
+                <option value="international">International</option>
+              </select>
+            </label>
+
+            <div class="conditional-block hidden nested-block" data-block="conference-national">
+              <div class="form-grid">
+                <label class="field field-full">
+                  <span>Title</span>
+                  <input type="text" name="conferenceNationalTitle" placeholder="Enter title" data-required="true">
+                </label>
+
+                <label class="field field-full">
+                  <span>Details</span>
+                  <textarea name="conferenceNationalDetails" rows="4" placeholder="Enter conference details" data-required="true"></textarea>
+                </label>
+
+                <label class="field">
+                  <span>Date of Publication</span>
+                  <input type="date" name="conferenceNationalDate" data-required="true">
+                </label>
+
+                <label class="field">
+                  <span>ISSN/ISBN Number (if applicable)</span>
+                  <input type="text" name="conferenceNationalIssn" placeholder="Enter ISSN or ISBN">
+                </label>
+
+                <label class="field field-full">
+                  <span>Upload Certificate (PDF only)</span>
+                  <input type="file" name="conferenceNationalCertificate" accept="application/pdf,.pdf" data-required="true">
+                </label>
+              </div>
+            </div>
+
+            <div class="conditional-block hidden nested-block" data-block="conference-international">
+              <div class="form-grid">
+                <label class="field field-full">
+                  <span>Title</span>
+                  <input type="text" name="conferenceInternationalTitle" placeholder="Enter title" data-required="true">
+                </label>
+
+                <label class="field field-full">
+                  <span>Details</span>
+                  <textarea name="conferenceInternationalDetails" rows="4" placeholder="Enter conference details" data-required="true"></textarea>
+                </label>
+
+                <label class="field">
+                  <span>Date of Publication</span>
+                  <input type="date" name="conferenceInternationalDate" data-required="true">
+                </label>
+
+                <label class="field">
+                  <span>Indexed By</span>
+                  <select name="conferenceIndexedBy" data-required="true">
+                    <option value="">Select indexing type</option>
+                    <option value="ieee">IEEE</option>
+                    <option value="scopus">Scopus</option>
+                    <option value="web-of-science">Web of Science</option>
+                    <option value="other">Other</option>
+                  </select>
+                </label>
+
+                <label class="field hidden" data-block="conference-scopus">
+                  <span>Scopus Quartile</span>
+                  <select name="conferenceScopusQuartile" data-required="true">
+                    <option value="">Select quartile</option>
+                    <option value="Q1">Q1</option>
+                    <option value="Q2">Q2</option>
+                    <option value="Q3">Q3</option>
+                    <option value="Q4">Q4</option>
+                  </select>
+                </label>
+
+                <label class="field hidden" data-block="conference-other-index">
+                  <span>Other Indexing</span>
+                  <input type="text" name="conferenceOtherIndex" placeholder="Enter indexing source" data-required="true">
+                </label>
+
+                <label class="field field-full">
+                  <span>Any Other Details</span>
+                  <textarea name="conferenceInternationalOtherDetails" rows="4" placeholder="Add any additional details"></textarea>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <section class="conditional-block hidden" data-block="journal">
+            <div class="block-heading">
+              <h2>Journal Details</h2>
+            </div>
+
+            <label class="field">
+              <span>Journal Type</span>
+              <select name="journalScope" data-required="true">
+                <option value="">Select journal type</option>
+                <option value="national">National</option>
+                <option value="international">International</option>
+              </select>
+            </label>
+
+            <div class="conditional-block hidden nested-block" data-block="journal-national">
+              <div class="form-grid">
+                <label class="field field-full">
+                  <span>Title of the Project / Article</span>
+                  <input type="text" name="journalNationalTitle" placeholder="Enter title of the project or article" data-required="true">
+                </label>
+
+                <label class="field field-full">
+                  <span>Details</span>
+                  <textarea name="journalNationalDetails" rows="4" placeholder="Enter journal details" data-required="true"></textarea>
+                </label>
+
+                <label class="field">
+                  <span>ISSN/ISBN Number (if applicable)</span>
+                  <input type="text" name="journalNationalIssn" placeholder="Enter ISSN or ISBN">
+                </label>
+
+                <label class="field">
+                  <span>No. of Authors</span>
+                  <input type="number" min="1" name="journalNationalAuthors" placeholder="Enter number of authors" data-required="true">
+                </label>
+
+                <label class="field">
+                  <span>Your Author Position</span>
+                  <input type="text" name="journalNationalAuthorPosition" placeholder="Enter author position" data-required="true">
+                </label>
+
+                <label class="field">
+                  <span>Date of Publication</span>
+                  <input type="date" name="journalNationalDate" data-required="true">
+                </label>
+              </div>
+            </div>
+
+            <div class="conditional-block hidden nested-block" data-block="journal-international">
+              <div class="form-grid">
+                <label class="field field-full">
+                  <span>Title of the Project / Article</span>
+                  <input type="text" name="journalInternationalTitle" placeholder="Enter title of the project or article" data-required="true">
+                </label>
+
+                <label class="field field-full">
+                  <span>Details</span>
+                  <textarea name="journalInternationalDetails" rows="4" placeholder="Enter journal details" data-required="true"></textarea>
+                </label>
+
+                <label class="field">
+                  <span>ISSN/ISBN Number (if applicable)</span>
+                  <input type="text" name="journalInternationalIssn" placeholder="Enter ISSN or ISBN">
+                </label>
+
+                <label class="field">
+                  <span>No. of Authors</span>
+                  <input type="number" min="1" name="journalInternationalAuthors" placeholder="Enter number of authors" data-required="true">
+                </label>
+
+                <label class="field">
+                  <span>Your Author Position</span>
+                  <input type="text" name="journalInternationalAuthorPosition" placeholder="Enter author position" data-required="true">
+                </label>
+
+                <label class="field">
+                  <span>Date of Publication</span>
+                  <input type="date" name="journalInternationalDate" data-required="true">
+                </label>
+
+                <label class="field">
+                  <span>Indexed By</span>
+                  <select name="journalIndexedBy" data-required="true">
+                    <option value="">Select indexing type</option>
+                    <option value="ieee">IEEE</option>
+                    <option value="scopus">Scopus</option>
+                    <option value="web-of-science">Web of Science</option>
+                    <option value="other">Other</option>
+                  </select>
+                </label>
+
+                <label class="field hidden" data-block="journal-scopus">
+                  <span>Scopus Quartile</span>
+                  <select name="journalScopusQuartile" data-required="true">
+                    <option value="">Select quartile</option>
+                    <option value="Q1">Q1</option>
+                    <option value="Q2">Q2</option>
+                    <option value="Q3">Q3</option>
+                    <option value="Q4">Q4</option>
+                  </select>
+                </label>
+
+                <label class="field hidden" data-block="journal-other-index">
+                  <span>Other Indexing</span>
+                  <input type="text" name="journalOtherIndex" placeholder="Enter indexing source" data-required="true">
+                </label>
+
+                <label class="field field-full">
+                  <span>DOI</span>
+                  <textarea name="journalInternationalDoi" rows="2" placeholder="Enter DOI" data-required="true"></textarea>
+                </label>
+
+                <label class="field field-full">
+                  <span>Paper Link</span>
+                  <input type="url" name="journalInternationalPaperLink" placeholder="https://example.com/paper-link" data-required="true">
+                </label>
+
+                <label class="field field-full">
+                  <span>Upload PDF of Paper (PDF only)</span>
+                  <input type="file" name="journalInternationalPaperPdf" accept="application/pdf,.pdf" data-required="true">
+                </label>
+
+                <label class="field field-full">
+                  <span>Any Other Details</span>
+                  <textarea name="journalInternationalOtherDetails" rows="4" placeholder="Add any additional details"></textarea>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <div class="form-actions">
+            <button class="button button-primary" type="submit">Submit Form</button>
+            <a class="button button-secondary button-solid" href="index.html">Back to Home</a>
+          </div>
+
+          <p class="form-status" aria-live="polite"></p>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
